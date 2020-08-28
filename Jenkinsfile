@@ -7,10 +7,9 @@ pipeline {
         SOURCE_VERSION = ''
         ARTIFACTORY_USER = ''
     }
-    
     stages {
          stage ('Checkout'){
-        git branch: 'exampleBranch', url: 'https://github.com/example-org/example-repo.git'
+            git credentialsId: 'f3b19650-ee19-4187-9152-e2b4f894e7aa', url: 'https://github.com/cody6750/tester'        
         }
         stage('Test') {
             steps {
