@@ -9,7 +9,9 @@ pipeline {
     }
     stages {
          stage ('Checkout'){
-            git credentialsId: 'f3b19650-ee19-4187-9152-e2b4f894e7aa', url: 'https://github.com/cody6750/tester'        
+             steps{
+                git credentialsId: 'f3b19650-ee19-4187-9152-e2b4f894e7aa', url: 'https://github.com/cody6750/tester'  
+            }      
         }
         stage('Test') {
             steps {
@@ -27,17 +29,17 @@ pipeline {
             }
         }
         stage('Promotion') {
-            when {
+          /*  when {
               branch        'master'
               promoteTo     'production'
             }
             steps {
                 echo 'Promote to Prod....'
-            }
-            when {
+            }*/
+           /* when {
                 branch      'master'
                 promoteTo   'stage'
-            }
+            }*/
             steps {
                 echo 'Promote to Stage....'
             }
